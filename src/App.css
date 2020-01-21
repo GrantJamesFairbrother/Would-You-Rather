@@ -1,0 +1,26 @@
+h1 {
+  color: #fff;
+}
+
+.white-text {
+  color: #fff;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.gold {
+  border: solid #d4af37 6px;
+  border-radius: 8px;
+}
+
+.silver {
+  border: solid #c0c0c0 4px;
+  border-radius: 8px;
+}
+
+.bronze {
+  border: solid #cd7f32 3px;
+  border-radius: 8px;
+}
