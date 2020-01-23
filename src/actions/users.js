@@ -1,5 +1,4 @@
-export const GET_USERS = 'GET_USERS';
-export const SAVE_USER_ANSWER = 'SAVE_USER_ANSWER';
+import { GET_USERS, SAVE_USER_ANSWER } from './types';
 
 export function getUsers(users) {
   return {

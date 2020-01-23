@@ -1,7 +1,5 @@
 import { saveQuestion } from '../utils/api';
-
-export const GET_QUESTIONS = 'GET_QUESTIONS';
-export const ADD_QUESTION = 'ADD_QUESTION';
+import { GET_QUESTIONS, ADD_QUESTION } from './types';
 
 export function getQuestions(questions) {
   return {

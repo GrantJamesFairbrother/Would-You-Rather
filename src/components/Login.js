@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser';
 import { useHistory } from 'react-router-dom';
 
-const Login = ({ users, dispatch, authedUser }) => {
+const Login = ({ users, dispatch }) => {
   const [selectedUser, setSelectedUser] = useState('');
 
   const handleUserFormChange = e => {
@@ -13,12 +13,16 @@ const Login = ({ users, dispatch, authedUser }) => {
   };
 
   let history = useHistory();
+  const urlHistory = history.location.pathname;
+  let path;
 
   const handleLogin = e => {
     e.preventDefault();
 
     dispatch(setAuthedUser(selectedUser));
-    let path = '/';
+
+    if (urlHistory === '/') path = '/';
+    else path = urlHistory;
     history.push(path);
   };
 

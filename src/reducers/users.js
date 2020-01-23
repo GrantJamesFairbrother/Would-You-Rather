@@ -1,5 +1,4 @@
-import { GET_USERS, SAVE_USER_ANSWER } from '../actions/users';
-import { ADD_QUESTION } from '../actions/questions';
+import { GET_USERS, SAVE_USER_ANSWER, ADD_QUESTION } from '../actions/types';
 
 export default function users(state = {}, action) {
   switch (action.type) {

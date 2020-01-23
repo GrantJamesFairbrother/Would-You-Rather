@@ -1,13 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser';
 
 const NavBar = ({ name, authedUser, dispatch }) => {
+  let history = useHistory();
+
   const handleLogout = e => {
     e.preventDefault();
 
     dispatch(setAuthedUser(null));
+    let path = '/';
+    history.push(path);
   };
   return (
     <div className='col-12'>
