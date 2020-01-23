@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setAuthedUser } from '../actions/authedUser';
 
-const NavBar = () => {
+const NavBar = ({ name, authedUser, dispatch }) => {
+  const handleLogout = e => {
+    e.preventDefault();
+
+    dispatch(setAuthedUser(null));
+  };
   return (
     <div className='col-12'>
       <nav className='navbar navbar-expand-lg navbar-light bg-light'>
@@ -12,7 +19,7 @@ const NavBar = () => {
             </Link>
           </li>
           <li className='nav-item'>
-            <Link className='nav-link' to='/new'>
+            <Link className='nav-link' to='/add'>
               New Question
             </Link>
           </li>
@@ -23,11 +30,13 @@ const NavBar = () => {
           </li>
         </ul>
         <form className='form-inline my-2 my-lg-0'>
+          {authedUser && <span className='mr-2'>Welcome, {name} </span>}
           <Link
             to='/login'
             className='btn btn-outline-dark my-2 my-sm-0'
+            onClick={authedUser ? handleLogout : null}
             type='submit'>
-            Login
+            {authedUser ? 'Logout' : 'Login'}
           </Link>
         </form>
       </nav>
@@ -35,4 +44,14 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+function mapStateToProps({ users, authedUser }) {
+  let name;
+  if (users[authedUser]) name = users[authedUser].name;
+
+  return {
+    name,
+    authedUser
+  };
+}
+
+export default connect(mapStateToProps)(NavBar);
