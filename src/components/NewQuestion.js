@@ -21,8 +21,6 @@ const NewQuestion = ({ dispatch }) => {
     setNewQues(true);
   };
 
-  console.log(options);
-
   return (
     <>
       {newQues ? (

@@ -27,7 +27,7 @@ const ViewQuestionOptions = ({
         <div className='card-header'>{author} Asks...</div>
         <div className='card-body'>
           <div className='row'>
-            <div className='border-right p-2 col-4 '>
+            <div className='border-right p-2 col-4 d-flex justify-content-center align-items-center'>
               <img
                 className='card-img-left flex-auto d-none d-lg-block rounded-circle center'
                 alt='Thumbnail [150x150]'
