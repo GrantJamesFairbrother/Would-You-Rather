@@ -21,6 +21,8 @@ const NewQuestion = ({ dispatch }) => {
     setNewQues(true);
   };
 
+  console.log(options);
+
   return (
     <>
       {newQues ? (
@@ -50,7 +52,14 @@ const NewQuestion = ({ dispatch }) => {
                   onChange={handleOptions}
                   className='form-control w-100'
                 />
-                <button type='submit' className='btn btn-primary w-100 mt-5'>
+                <button
+                  disabled={
+                    options.optionOneText && options.optionTwoText
+                      ? false
+                      : true
+                  }
+                  type='submit'
+                  className='btn btn-primary w-100 mt-5'>
                   Submit
                 </button>
               </form>
